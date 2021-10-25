@@ -1,0 +1,7 @@
+https://api.kawalcorona.com/ country wise with updated time
+
+https://github.com/M-Media-Group/Covid-19-API
+
+https://covid-19.dataflowkit.com/v1/world 
+
+https://disease.sh/v3/covid-19/vaccine/coverage/countries Graph
