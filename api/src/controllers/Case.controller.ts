@@ -13,7 +13,7 @@ export class CaseController {
     }
 
     @Get('/world')
-    async worldCases() {
+    async worldWideCases() {
         const worldCaseData: ApiResponse<Case> = await this.caseService.getWorldWideCases();
         return worldCaseData;
     }

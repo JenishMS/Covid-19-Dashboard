@@ -15,4 +15,6 @@ https://disease.sh/docs/#/COVID-19%3A%20Worldometers/get_v3_covid_19_countries -
 https://data.covid19india.org/v4/min/timeseries.min.json time series data
 https://data.covid19india.org/v4/min/data.min.json India State wise Data
 
+https://apisetu.gov.in/api/cowin
+
 https://gist.githubusercontent.com/shubhamjain/35ed77154f577295707a/raw/7bc2a915cff003fb1f8ff49c6890576eee4f2f10/IndianStates.json

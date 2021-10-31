@@ -3,6 +3,7 @@ import { createExpressServer, useContainer } from "routing-controllers";
 import Container from "typedi";
 import { ApiController } from "./controllers/Api.controller";
 import { CaseController } from './controllers/Case.controller';
+import { VaccineController } from './controllers/Vaccine.controller';
 
 const bodyParser = require('body-parser');
 require('dotenv').config();
@@ -10,7 +11,7 @@ const port = process.env.port || 3000;
 
 async function startServer() {
     useContainer(Container);
-    const controllers = [CaseController,ApiController];
+    const controllers = [CaseController, VaccineController];
     const app = createExpressServer({
         controllers: controllers
     });
