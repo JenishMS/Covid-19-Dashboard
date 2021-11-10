@@ -39,6 +39,10 @@ export class AppService {
   async getUserCountryCases(): Promise<any> {
     return await this.http.get(`${environment.apiEndPoint}case/current/${this.userLocation.country_code}`).toPromise();
   }
+  
+  async getUserCountryTimeSeries(code: string): Promise<any> {
+    return await this.http.get(`${environment.apiEndPoint}case/userCountryTimeSeriesData/${code}`).toPromise();
+  }
 
   async getallCases(): Promise<any> {
     return await this.http.get(`${environment.apiEndPoint}case/all`).toPromise();

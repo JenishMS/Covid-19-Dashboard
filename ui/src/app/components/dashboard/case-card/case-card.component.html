@@ -15,18 +15,18 @@
                     <div class="row">
                         <div class="col flex-box-center flex-col">
                             <h4 class="text-center m-0">Cases</h4>
-                            <h2 class="text-center m-0 flex danger-text">{{data?.todayCases.toLocaleString('en-IN')}}
+                            <h2 class="text-center m-0 flex danger-text">{{data?.todayCases}}
                             </h2>
                         </div>
                         <div class="col flex-box-center flex-col">
                             <h4 class="text-center m-0">Recovered</h4>
                             <h2 class="text-center m-0 flex success-text">
-                                {{data?.todayRecovered.toLocaleString('en-IN')}}
+                                {{data?.todayRecovered}}
                             </h2>
                         </div>
                         <div class="col flex-box-center flex-col">
                             <h4 class="text-center m-0">Death</h4>
-                            <h2 class="text-center m-0 flex danger-text">{{data?.todayDeaths.toLocaleString('en-IN')}}
+                            <h2 class="text-center m-0 flex danger-text">{{data?.todayDeaths}}
                             </h2>
                         </div>
                     </div>
@@ -35,24 +35,24 @@
             <div class="row" *ngIf="!removeTotal">
                 <div class="col flex-box-center flex-col">
                     <h5 class="text-center m-0">Cases</h5>
-                    <h3 class="text-center m-0">{{data?.cases.toLocaleString('en-IN')}}
+                    <h3 class="text-center m-0">{{data?.cases}}
                     </h3>
                 </div>
                 <div class="col flex-box-center flex-col">
                     <h5 class="text-center m-0">Death</h5>
-                    <h3 class="text-center m-0">{{data?.deaths.toLocaleString('en-IN')}}</h3>
+                    <h3 class="text-center m-0">{{data?.deaths}}</h3>
                 </div>
                 <div class="col flex-box-center flex-col">
                     <h5 class="text-center m-0">Recovered</h5>
-                    <h3 class="text-center m-0">{{data?.recovered.toLocaleString('en-IN')}}</h3>
+                    <h3 class="text-center m-0">{{data?.recovered}}</h3>
                 </div>
                 <div class="col flex-box-center flex-col">
                     <h5 class="text-center m-0">Critical</h5>
-                    <h3 class="text-center m-0">{{data?.critical.toLocaleString('en-IN')}}</h3>
+                    <h3 class="text-center m-0">{{data?.critical}}</h3>
                 </div>
                 <div class="col flex-box-center flex-col">
                     <h5 class="text-center m-0">Tests</h5>
-                    <h3 class="text-center m-0">{{data.tests.toLocaleString('en-IN')}}</h3>
+                    <h3 class="text-center m-0">{{data.tests}}</h3>
                 </div>
             </div>
         </div>

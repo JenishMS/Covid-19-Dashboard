@@ -42,6 +42,12 @@ export class CaseController {
         return indiaStateCases;
     }
 
+    @Get('/userCountryTimeSeriesData/:code')
+    async userCountryTimeSeriesData(@Param('code') code: string) {
+        const indiaStateCases: ApiResponse<Case[]> = await this.caseService.getIUserCountryTimeSeries(code);
+        return indiaStateCases;
+    }
+
     @Post('/pinned')
     async pinnedCountryCases(@Body() data: {country: string[]}) {
         const worldCaseData: ApiResponse<Case[]> = await this.caseService.getPinnedCountryCases(data);
