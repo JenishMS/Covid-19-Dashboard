@@ -22,9 +22,21 @@ export class ApppService {
     }
 
     formatVaccinationData(data: any): Vaccine {
-        delete data.totalPerHundred;
-        delete data.dailyPerMillion;
-        return data;
+        
+        return {
+            total: Math.round(data.total_vaccinations) || 0,
+            daily: Math.round(data.new_vaccinations_smoothed) || 0,
+            vaccinated: Math.round(data.people_vaccinated) || 0,
+            fullyVaccinated: Math.round(data.people_fully_vaccinated) || 0,
+            country: data.location as string,
+            iso: data.iso_code,
+            continent: data.continent,
+            date: data.last_updated_date,
+            population: Math.round(data.population),
+            percentage: ((Math.round(data.total_vaccinations) || 0) / Math.round(data.population)) * 100,        
+            vaccinatedPercentage: ((Math.round(data.people_vaccinated) || 0) / Math.round(data.population)) * 100,
+            fullyVaccinatedPercentage: ((Math.round(data.people_fully_vaccinated) || 0) / Math.round(data.population)) * 100
+        };
     }
 
     success<T>(data: any, message = ''): ApiResponse<T> {
@@ -42,4 +54,25 @@ export class ApppService {
             data
         }
     }
+
+    csvJSON(csvStr: string){
+  var lines=csvStr.split("\n");
+  var result = [];
+
+  var headers=lines[0].split(",");
+
+  for(var i=1;i<lines.length;i++){
+
+      var obj: any = {};
+      var currentline=lines[i].split(",");
+
+      for(var j=0;j<headers.length;j++){
+          obj[headers[j]] = currentline[j];
+      }
+
+      result.push(obj);
+
+  }
+  return result; //JavaScript object
+}
 }

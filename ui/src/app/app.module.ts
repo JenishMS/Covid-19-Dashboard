@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,15 @@ import { UserCountryComponent } from './components/user-country/user-country.com
 import { EconomyComponent } from './components/economy/economy.component';
 import { VaccineComponent } from './components/vaccine/vaccine.component';
 import { BaseComponent } from './components/base/base.component';
+import { CaseCardComponent } from './components/dashboard/case-card/case-card.component';
+import { CountryCaseCardComponent } from './components/dashboard/country-case-card/country-case-card.component';
+import { PinnedCountriesComponent } from './components/dashboard/pinned-countries/pinned-countries.component';
+import { AllCountryCasesComponent } from './components/dashboard/all-country-cases/all-country-cases.component';
+import { AllCountryVaccineComponent } from './components/vaccine/all-country-vaccine/all-country-vaccine.component';
+import { VaccineCardComponent } from './components/vaccine/vaccine-card/vaccine-card.component';
+import { VaccinePinnedCountriesComponent } from './components/vaccine/vaccine-pinned-countries/vaccine-pinned-countries.component';
+import { UserStateListComponent } from './components/dashboard/user-state-list/user-state-list.component';
+
 
 @NgModule({
   declarations: [
@@ -22,12 +32,21 @@ import { BaseComponent } from './components/base/base.component';
     UserCountryComponent,
     EconomyComponent,
     VaccineComponent,
-    BaseComponent
+    BaseComponent,
+    CaseCardComponent,
+    CountryCaseCardComponent,
+    PinnedCountriesComponent,
+    AllCountryCasesComponent,
+    VaccineCardComponent,
+    VaccinePinnedCountriesComponent,
+    AllCountryVaccineComponent,
+    UserStateListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     SharedModule
   ],
   providers: [],

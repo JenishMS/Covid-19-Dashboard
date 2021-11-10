@@ -1,7 +1,6 @@
 import 'reflect-metadata';
 import { createExpressServer, useContainer } from "routing-controllers";
 import Container from "typedi";
-import { ApiController } from "./controllers/Api.controller";
 import { CaseController } from './controllers/Case.controller';
 import { VaccineController } from './controllers/Vaccine.controller';
 
@@ -13,7 +12,8 @@ async function startServer() {
     useContainer(Container);
     const controllers = [CaseController, VaccineController];
     const app = createExpressServer({
-        controllers: controllers
+        controllers: controllers,
+        cors: true
     });
     app.listen(port, () => {
         console.log(`Application running in port ${port}`);

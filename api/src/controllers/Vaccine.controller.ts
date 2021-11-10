@@ -1,5 +1,7 @@
-import { Get, JsonController, Param } from "routing-controllers";
+import { Body, Get, JsonController, Param, Post } from "routing-controllers";
 import { Service } from "typedi";
+import { ApiResponse } from "../models/api-response.model";
+import { Vaccine } from "../models/vaccine.model";
 import { VaccineService } from "../services/vaccine.service";
 
 @JsonController('/vaccine')
@@ -29,5 +31,10 @@ export class VaccineController {
     async countryWiseVaccination() {
         const allCountryData = await this.vaccineService.getAllCountriesVaccination();
         return allCountryData;
+    }
+    @Post('/pinned')
+    async pinnedCountryCases(@Body() data: {country: string[]}) {
+        const worldCaseData: ApiResponse<Vaccine[]> = await this.vaccineService.getPinnedCountryVaccineData(data.country);
+        return worldCaseData;
     }
 }

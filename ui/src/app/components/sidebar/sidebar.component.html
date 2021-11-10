@@ -1,8 +1,8 @@
 <div class="sidebar-container">
     <mat-list>
-        <mat-list-item class="active">Dashboard</mat-list-item>
-        <mat-list-item>India</mat-list-item>
-        <mat-list-item>Vaccine</mat-list-item>
-        <mat-list-item>Economy</mat-list-item>
+        <mat-list-item [routerLink]="[ '/dashboard' ]" routerLinkActive="active">Dashboard</mat-list-item>
+        <mat-list-item [routerLink]="[ '/country' ]" routerLinkActive="active">India</mat-list-item>
+        <mat-list-item [routerLink]="[ '/vaccine' ]" routerLinkActive="active">Vaccine</mat-list-item>
+        <!-- <mat-list-item [routerLink]="[ '/economy' ]" routerLinkActive="active">Economy</mat-list-item> -->
     </mat-list>
 </div>

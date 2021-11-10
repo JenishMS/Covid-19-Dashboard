@@ -1,0 +1,60 @@
+@import '../../../../assets/scss/variables';
+.flag-icon {
+    width: 1.5rem;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    .all-data-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .flag-container {
+            flex: 1;
+            img {
+                width: 5rem;
+                height: 4rem;
+            }
+        }
+
+        .row {
+            flex: 3;
+        }
+    }
+
+    .col {
+        padding: .5rem;
+        border-radius: 1rem;
+    }
+
+    
+    .data-container {
+        flex: 3;
+    }
+}
+
+.mat-card:hover {
+    .overlay {
+        display: block;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.466);
+    display: none;
+}
+.unpin {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.3rem;
+    transform: rotate(45deg);
+    color: $primaryColor;
+}

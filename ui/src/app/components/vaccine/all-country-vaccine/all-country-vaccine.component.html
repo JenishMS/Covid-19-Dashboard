@@ -1,0 +1,124 @@
+<div class="cases-list-container mt-1">
+    <div class="row">
+        <div class="flex-5 h-100">
+            <mat-card class="bg-secondary">
+                <mat-card-header>
+                    <mat-card-title class="flex space-between">
+                        <span>All Country</span>
+                        <span><input type="text" name="" class="form-control"
+                                (input)="searchVaccine($event.target.value)" placeholder="Search" id=""></span>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table mat-table matSort [dataSource]="dataSource" class="w-100">
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="sno">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> S.No </th>
+                            <td mat-cell *matCellDef="let element;let i = index"> {{i+1}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="country">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Country </th>
+                            <td mat-cell *matCellDef="let element;let i = index" class="cursor-pointer"
+                                (click)="selectCountry(element, i)">
+                                <img class="flag" src="assets/flags/4x3/{{iso3List[element.iso] | lowercase}}.svg"
+                                    alt="">
+                                {{element.country}}
+                            </td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="total">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Dose </th>
+                            <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="vaccinated">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Vaccinated </th>
+                            <td mat-cell *matCellDef="let element"> {{element.vaccinated}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="fullyVaccinated">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Fully Vaccinated </th>
+                            <td mat-cell *matCellDef="let element"> {{element.fullyVaccinated}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="percentage">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Percentage </th>
+                            <td mat-cell *matCellDef="let element"> {{element.percentage}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="population">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Population </th>
+                            <td mat-cell *matCellDef="let element"> {{element.population| number: '1.0-2'}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef></th>
+                            <td mat-cell *matCellDef="let element">
+                                <button mat-icon-button (click)="pinCountry(element)">
+                                    <mat-icon>push_pin</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                        aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="flex-3 h-100" *ngIf="selectedCountryVaccine">
+            <mat-card class="bg-secondary">
+                <mat-card-header>
+                    <mat-card-title class="flex space-between">
+                        <span>{{selectedCountryVaccine?.country}}</span>
+                        <span class="country-icon"><img
+                                src="assets/flags/4x3/{{iso3List[selectedCountryVaccine.iso] | lowercase}}.svg"
+                                alt=""></span>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul class="p-0">
+                        <li class="row">
+                            <div class="col">Population</div>
+                            <div class="col">{{selectedCountryVaccine?.population.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Doses</div>
+                            <div class="col">{{selectedCountryVaccine?.total.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Today Vaccinated</div>
+                            <div class="col">{{selectedCountryVaccine?.daily.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Vaccinated</div>
+                            <div class="col">{{selectedCountryVaccine?.vaccinated.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Fully Vaccinated</div>
+                            <div class="col">{{selectedCountryVaccine?.fullyVaccinated.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Dose (%)</div>
+                            <div class="col">{{selectedCountryVaccine?.percentage | number: '1.0-2'}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Vaccinated (%)</div>
+                            <div class="col">{{selectedCountryVaccine?.vaccinatedPercentage | number: '1.0-2'}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Fully Vaccinated (%))</div>
+                            <div class="col">{{selectedCountryVaccine?.fullyVaccinatedPercentage | number: '1.0-2'}}
+                            </div>
+                        </li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

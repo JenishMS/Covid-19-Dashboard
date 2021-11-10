@@ -1,0 +1,8 @@
+<div class="pinned-container mt-1">
+    <div class="row" cdkDropList (cdkDropListDropped)="drop($event)">
+        <div class="col h-100" *ngFor="let vaccine of pinnedData" cdkDrag>
+            <app-vaccine-card (unpin)="unpin($event)" type="small" [data]="vaccine" (unpin)="unpin($event)">
+            </app-vaccine-card>
+        </div>
+    </div>
+</div>

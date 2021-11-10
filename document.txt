@@ -18,3 +18,9 @@ https://data.covid19india.org/v4/min/data.min.json India State wise Data
 https://apisetu.gov.in/api/cowin
 
 https://gist.githubusercontent.com/shubhamjain/35ed77154f577295707a/raw/7bc2a915cff003fb1f8ff49c6890576eee4f2f10/IndianStates.json
+
+const response = await axios.get(`${process.env.diseaseEndPoint}vaccine/coverage?lastdays=2&fullData=true`);
+// response.data = this.appService.formatVaccinationData(response.data[0]);
+
+const response = await axios.get(`${process.env.diseaseEndPoint}vaccine/coverage/countries/${countryCode}?lastdays=2&fullData=true`);
+const response = await axios.get(`${process.env.diseaseEndPoint}vaccine/coverage/countries?lastdays=2&fullData=true`);

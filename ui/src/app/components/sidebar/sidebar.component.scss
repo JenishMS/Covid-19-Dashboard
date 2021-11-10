@@ -2,7 +2,9 @@
 .sidebar-container {
     width: 200px;
     margin-top: 1rem;
-
+    .mat-list-item {
+        cursor: pointer;
+    }
     .active {
         background-color: $secondaryColor;
         border-top-right-radius: 1rem;

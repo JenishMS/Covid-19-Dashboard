@@ -1,0 +1,34 @@
+.flag-icon {
+    width: 1.5rem;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    .all-data-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .flag-container {
+            flex: 1;
+            img {
+                width: 5rem;
+            }
+        }
+
+        .row {
+            flex: 3;
+        }
+    }
+
+    .col {
+        padding: .5rem;
+        border-radius: 1rem;
+    }
+
+    
+    .data-container {
+        flex: 3;
+    }
+}
