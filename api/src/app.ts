@@ -1,6 +1,10 @@
 import 'reflect-metadata';
-import { createExpressServer, useContainer } from "routing-controllers";
-import Container from "typedi";
+
+import express from 'express';
+import path from 'path';
+import { createExpressServer, useContainer } from 'routing-controllers';
+import Container from 'typedi';
+
 import { CaseController } from './controllers/Case.controller';
 import { VaccineController } from './controllers/Vaccine.controller';
 
@@ -15,6 +19,10 @@ async function startServer() {
         controllers: controllers,
         cors: true
     });
+
+    // static files folder. when app run in prod mode. all the source code file
+    // serve ui files.
+    app.use(express.static(path.join(__dirname, 'static')));
     app.listen(port, () => {
         console.log(`Application running in port ${port}`);
     });
