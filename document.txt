@@ -1,7 +1,26 @@
 https://api.kawalcorona.com/ country wise with updated time
 
 https://github.com/M-Media-Group/Covid-19-API
+https://raw.githubusercontent.com/M-Media-Group/country-json/master/src/countries-master.json countries list
 
 https://covid-19.dataflowkit.com/v1/world 
 
 https://disease.sh/v3/covid-19/vaccine/coverage/countries Graph
+
+https://freegeoip.app/json/
+
+https://disease.sh/docs/#/COVID-19%3A%20Worldometers/get_v3_covid_19_countries -----Important
+
+
+https://data.covid19india.org/v4/min/timeseries.min.json time series data
+https://data.covid19india.org/v4/min/data.min.json India State wise Data
+
+https://apisetu.gov.in/api/cowin
+
+https://gist.githubusercontent.com/shubhamjain/35ed77154f577295707a/raw/7bc2a915cff003fb1f8ff49c6890576eee4f2f10/IndianStates.json
+
+const response = await axios.get(`${process.env.diseaseEndPoint}vaccine/coverage?lastdays=2&fullData=true`);
+// response.data = this.appService.formatVaccinationData(response.data[0]);
+
+const response = await axios.get(`${process.env.diseaseEndPoint}vaccine/coverage/countries/${countryCode}?lastdays=2&fullData=true`);
+const response = await axios.get(`${process.env.diseaseEndPoint}vaccine/coverage/countries?lastdays=2&fullData=true`);

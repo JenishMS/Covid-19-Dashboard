@@ -1,0 +1,12 @@
+<div class="dashboard-container">
+    <div class="row">
+        <div class="col h-100" *ngIf="worldVaccines">
+            <app-vaccine-card [data]="worldVaccines"></app-vaccine-card>
+        </div>
+        <div class="col h-100" *ngIf="userCountryVaccines">
+            <app-vaccine-card [data]="userCountryVaccines"></app-vaccine-card>
+        </div>
+    </div>
+    <app-vaccine-pinned-countries></app-vaccine-pinned-countries>
+    <app-all-country-vaccine></app-all-country-vaccine>
+</div>

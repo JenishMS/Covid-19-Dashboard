@@ -1,0 +1,34 @@
+@import '../../../../assets/scss/variables';
+.mat-card-header .mat-card-title {
+    font-size: 1.1rem;
+}
+
+.form-control {
+    border: none;
+    font-size: .9rem;
+    padding: 0.2rem 0.3rem;
+    background-color: transparent;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.mat-table, .mat-paginator {
+    background-color: transparent;
+}
+
+.flag {
+    width: 1rem;
+    padding-right: .2rem;
+}
+
+.country-icon {
+    width: 1.5rem;
+}
+
+li.row {
+    padding: .5rem;
+}
+
+td {
+    padding-right: .5rem;
+}

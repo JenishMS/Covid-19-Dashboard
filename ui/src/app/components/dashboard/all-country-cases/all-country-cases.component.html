@@ -1,0 +1,131 @@
+<div class="cases-list-container mt-1">
+    <div class="row">
+        <div class="flex-5 h-100">
+            <mat-card class="bg-secondary">
+                <mat-card-header>
+                    <mat-card-title class="flex space-between">
+                        <span>All Country</span>
+                        <span><input type="text" name="" class="form-control" (input)="searchCases($event.target.value)"
+                                placeholder="Search" id=""></span>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table mat-table matSort [dataSource]="dataSource" class="w-100">
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="sno">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> S.No </th>
+                            <td mat-cell *matCellDef="let element;let i = index"> {{i+1}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="country">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Country </th>
+                            <td mat-cell *matCellDef="let element;let i = index" class="cursor-pointer"
+                                (click)="selectCountry(element, i)">
+                                <img class="flag" src="assets/flags/4x3/{{element.countryInfo?.iso2 | lowercase}}.svg"
+                                    alt="">
+                                {{element.country}}
+                            </td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="cases">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Cases </th>
+                            <td mat-cell *matCellDef="let element"> {{element.cases}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="active">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Active </th>
+                            <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="deaths">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Death </th>
+                            <td mat-cell *matCellDef="let element"> {{element.deaths}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="recovered">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Recovered </th>
+                            <td mat-cell *matCellDef="let element"> {{element.recovered}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="population">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Population </th>
+                            <td mat-cell *matCellDef="let element"> {{element.population}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef></th>
+                            <td mat-cell *matCellDef="let element">
+                                <button mat-icon-button (click)="pinCountry(element)">
+                                    <mat-icon>push_pin</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                        aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="flex-3 h-100" *ngIf="selectedCountryCase">
+            <mat-card class="bg-secondary">
+                <mat-card-header>
+                    <mat-card-title class="flex space-between">
+                        <span>{{selectedCountryCase?.country}}</span>
+                        <span class="country-icon"><img
+                                src="assets/flags/4x3/{{selectedCountryCase.countryInfo?.iso2 | lowercase}}.svg"
+                                alt=""></span>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul class="p-0">
+                        <li class="row">
+                            <div class="col">Population</div>
+                            <div class="col">{{selectedCountryCase?.population.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Cases</div>
+                            <div class="col">{{selectedCountryCase?.cases.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Active</div>
+                            <div class="col">{{selectedCountryCase?.active.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Death</div>
+                            <div class="col">{{selectedCountryCase?.deaths.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Recovered</div>
+                            <div class="col">{{selectedCountryCase?.recovered.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Tests</div>
+                            <div class="col">{{selectedCountryCase?.tests.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Critical</div>
+                            <div class="col">{{selectedCountryCase?.critical.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Today Cases</div>
+                            <div class="col">{{selectedCountryCase?.todayCases.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Today Death</div>
+                            <div class="col">{{selectedCountryCase?.todayDeaths.toLocaleString('en-IN')}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Today Recovered</div>
+                            <div class="col">{{selectedCountryCase?.todayRecovered.toLocaleString('en-IN')}}</div>
+                        </li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

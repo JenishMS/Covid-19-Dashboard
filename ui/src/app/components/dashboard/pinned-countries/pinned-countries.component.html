@@ -1,0 +1,7 @@
+<div class="pinned-container mt-1">
+    <div class="row" cdkDropList (cdkDropListDropped)="drop($event)">
+        <div class="col h-100" *ngFor="let case of pinnedData" cdkDrag>
+            <app-country-case-card [data]="case" (unpin)="unpin($event)"></app-country-case-card>
+        </div>
+    </div>
+</div>

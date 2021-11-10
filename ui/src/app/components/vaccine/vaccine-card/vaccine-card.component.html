@@ -1,0 +1,42 @@
+<mat-card class="bg-secondary">
+    <mat-card-header>
+        <mat-card-title class="flex space-between">
+            <span>{{title}}</span>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="card-body" [ngClass]="{'small-text': type === 'small'}">
+            <div class="all-data-container">
+                <div class="flag-container flex-box-center">
+                    <img [src]="icon" alt="country icon">
+                </div>
+                <div class="flex-4">
+                    <div class="row">
+                        <div class="col flex-box-center flex-col">
+                            <h5 class="text-center m-0">Doses</h5>
+                            <h3 class="text-center m-0 flex success-text">{{data?.total.toLocaleString('en-IN')}}
+                            </h3>
+                        </div>
+                        <div class="col flex-box-center flex-col">
+                            <h5 class="text-center m-0">Vaccinated</h5>
+                            <h3 class="text-center m-0 flex success-text">{{data?.vaccinated.toLocaleString('en-IN')}}
+                            </h3>
+                        </div>
+                        <div class="col flex-box-center flex-col" *ngIf="type !== 'small'">
+                            <h5 class="text-center m-0">Today</h5>
+                            <h3 class="text-center m-0 flex success-text">{{data?.daily.toLocaleString('en-IN')}}
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <div class="overlay" *ngIf="type === 'small'">
+        <span class="unpin">
+            <button mat-icon-button (click)="unpinCountry(data)">
+                <mat-icon>push_pin</mat-icon>
+            </button>
+        </span>
+    </div>
+</mat-card>

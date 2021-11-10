@@ -1,0 +1,135 @@
+<div class="cases-list-container mt-1">
+    <div class="row">
+        <div class="flex-5 h-100">
+            <mat-card class="bg-secondary">
+                <mat-card-header>
+                    <mat-card-title class="flex space-between">
+                        <span>All State</span>
+                        <span><input type="text" name="" class="form-control" (input)="searchCases($event.target.value)"
+                                placeholder="Search" id=""></span>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table mat-table matSort [dataSource]="dataSource" class="w-100">
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="sno">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> S.No </th>
+                            <td mat-cell *matCellDef="let element;let i = index"> {{i+1}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="state">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> State </th>
+                            <td mat-cell *matCellDef="let element;let i = index" class="cursor-pointer">
+                                {{element.state}}
+                            </td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="confirmed">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Confirmed </th>
+                            <td mat-cell *matCellDef="let element"> {{element.total.confirmed.toLocaleString('en-IN')}}
+                            </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="deceased">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Death </th>
+                            <td mat-cell *matCellDef="let element"> {{element.total.deceased.toLocaleString('en-IN')}}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="recovered">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Recovered </th>
+                            <td mat-cell *matCellDef="let element"> {{element.total.recovered.toLocaleString('en-IN')}}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="tested">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Tested </th>
+                            <td mat-cell *matCellDef="let element"> {{element.total.tested.toLocaleString('en-IN')}}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="vaccinated1">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> First Dose </th>
+                            <td mat-cell *matCellDef="let element">
+                                {{element.total.vaccinated1.toLocaleString('en-IN')}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="vaccinated2">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Second Dose </th>
+                            <td mat-cell *matCellDef="let element">
+                                {{element.total.vaccinated2.toLocaleString('en-IN')}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="population">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> Population </th>
+                            <td mat-cell *matCellDef="let element"> {{element.meta.population.toLocaleString('en-IN')}}
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                        aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="flex-3 h-100" *ngIf="selectedCountryCase">
+            <mat-card class="bg-secondary">
+                <mat-card-header>
+                    <mat-card-title class="flex space-between">
+                        <span>{{selectedCountryCase?.country}}</span>
+                        <span class="country-icon"><img
+                                src="assets/flags/4x3/{{selectedCountryCase.countryInfo?.iso2 | lowercase}}.svg"
+                                alt=""></span>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul class="p-0">
+                        <li class="row">
+                            <div class="col">Population</div>
+                            <div class="col">{{selectedCountryCase?.population}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Cases</div>
+                            <div class="col">{{selectedCountryCase?.cases}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Active</div>
+                            <div class="col">{{selectedCountryCase?.active}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Death</div>
+                            <div class="col">{{selectedCountryCase?.deaths}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Recovered</div>
+                            <div class="col">{{selectedCountryCase?.recovered}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Tests</div>
+                            <div class="col">{{selectedCountryCase?.tests}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Critical</div>
+                            <div class="col">{{selectedCountryCase?.critical}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Today Cases</div>
+                            <div class="col">{{selectedCountryCase?.todayCases}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Today Death</div>
+                            <div class="col">{{selectedCountryCase?.todayDeaths}}</div>
+                        </li>
+                        <li class="row">
+                            <div class="col">Today Recovered</div>
+                            <div class="col">{{selectedCountryCase?.todayRecovered}}</div>
+                        </li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

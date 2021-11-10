@@ -1,0 +1,36 @@
+@import '../../../../assets/scss/variables';
+.country-icon {
+    width: 1.5rem;
+}
+
+.mat-card-header .mat-card-title {
+    font-size: 1rem;
+}
+
+.card-body {
+
+}
+
+.mat-card:hover {
+    .overlay {
+        display: block;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.466);
+    display: none;
+}
+.unpin {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.3rem;
+    transform: rotate(45deg);
+    color: $primaryColor;
+}

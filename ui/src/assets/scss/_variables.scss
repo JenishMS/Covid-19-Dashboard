@@ -1,0 +1,37 @@
+$primaryColor: #ff5733;
+$appColor: #ff5733;
+$black: #121212;
+$bgColor: #0A0E17;
+$white: #e7e7e7;
+$secondaryColor: #2a3245;
+$shadowColor: #272727;
+$defaultSize: 16px;
+$borderBoard: #5f5f5f94;
+
+
+
+//@include
+
+@mixin center($size, $top: auto, $bottom: auto) {
+  width: $size;
+  margin: $top auto $bottom auto;
+}
+
+@mixin flexBox(
+  $direction: row,
+  $justifyContent: flex-start,
+  $alignItem: stretch
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyContent;
+  align-items: $alignItem;
+}
+
+@mixin card() {
+  padding: $defaultSize;
+  border-radius: $defaultSize;
+  box-sizing: border-box;
+  background-color: $secondaryColor;
+  // box-shadow: 0px 3px 6px $shadowColor;
+}

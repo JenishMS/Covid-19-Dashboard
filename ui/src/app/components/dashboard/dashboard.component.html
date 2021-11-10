@@ -1,0 +1,12 @@
+<div class="dashboard-container">
+    <div class="row">
+        <div class="col h-100" *ngIf="worldCases">
+            <app-case-card [data]="worldCases"></app-case-card>
+        </div>
+        <div class="col h-100" *ngIf="userCountryCases">
+            <app-case-card [data]="userCountryCases"></app-case-card>
+        </div>
+    </div>
+    <app-pinned-countries></app-pinned-countries>
+    <app-all-country-cases></app-all-country-cases>
+</div>

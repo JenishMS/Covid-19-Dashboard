@@ -1,0 +1,36 @@
+<mat-card class="bg-secondary">
+    <mat-card-header>
+        <mat-card-title class="flex space-between">
+            <span>{{data.country}}</span>
+            <span class="country-icon"><img [src]="icon" alt=""></span>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="card-body">
+            <div class="row">
+                <div class="col flex-box-center flex-col">
+                    <h4 class="text-center m-0">Cases</h4>
+                    <h3 class="text-center m-0 flex danger-text">{{data?.todayCases.toLocaleString('en-IN')}}
+                    </h3>
+                </div>
+                <div class="col flex-box-center flex-col">
+                    <h4 class="text-center m-0">Recovered</h4>
+                    <h3 class="text-center m-0 flex success-text">{{data?.todayRecovered.toLocaleString('en-IN')}}
+                    </h3>
+                </div>
+                <div class="col flex-box-center flex-col">
+                    <h4 class="text-center m-0">Death</h4>
+                    <h3 class="text-center m-0 flex danger-text">{{data?.todayDeaths.toLocaleString('en-IN')}}
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <div class="overlay">
+        <span class="unpin">
+            <button mat-icon-button (click)="unpinCountry(data)">
+                <mat-icon>push_pin</mat-icon>
+            </button>
+        </span>
+    </div>
+</mat-card>
