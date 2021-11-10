@@ -57,6 +57,17 @@ export class CaseService {
         return response.data;
     }
 
+    async getIUserCountryTimeSeries(code: string): Promise<ApiResponse<Case[]>> {
+        const response = await axios.get(`https://data.covid19india.org/v4/min/timeseries.min.json`);
+        if(response.status === 200) {
+            const keys = Object.keys(response.data);
+            return this.appService.success<Case[]>(response.data[code]);
+        } else {
+            this.appService.error([]);
+        }
+        return response.data;
+    }
+
     async getCountryCasesData(countryCode: string): Promise<any> {
         const response = await axios.get(`${process.env.vaccineEndPoint}owid-covid-latest.csv`, { responseType: 'blob',});
         if(response.status === 200) {

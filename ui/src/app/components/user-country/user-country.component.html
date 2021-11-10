@@ -8,6 +8,22 @@
         </div>
     </div>
     <app-user-state-list></app-user-state-list>
-    <!-- <app-pinned-countries></app-pinned-countries>
-    <app-all-country-cases></app-all-country-cases> -->
+    <div class="chart-container mt-1">
+        <mat-card class="bg-secondary">
+            <mat-card-header>
+                <mat-card-title class="flex space-between">
+                    <span>Chart</span>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="chart">
+                    <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels"
+                        [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                        [chartType]="lineChartType" [plugins]="lineChartPlugins" style="height: 100%;">
+                    </canvas>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+    </div>
 </div>
