@@ -10,4 +10,4 @@
     <li>https://github.com/owid/covid-19-data</li>
   </ul>
   
-  <h4>Thank You</h4>
+  <h4>Thank You!</h4>
