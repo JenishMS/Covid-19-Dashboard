@@ -10,6 +10,7 @@ export class VaccineCardComponent implements OnInit {
   title: string;
   @Input() data: Vaccine;
   @Input() type = 'default';
+  @Input() showTitle = true;
   icon: string = 'assets/flags/4x3/globe.svg';
   @Output() unpin = new EventEmitter();
   constructor() { }

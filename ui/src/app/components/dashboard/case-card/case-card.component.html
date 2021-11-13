@@ -1,7 +1,8 @@
 <mat-card class="bg-secondary">
     <mat-card-header>
         <mat-card-title class="flex space-between">
-            <span>{{title}}</span>
+            <span *ngIf="!removeTotal">{{title}}</span>
+            <span *ngIf="removeTotal">Cases</span>
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>

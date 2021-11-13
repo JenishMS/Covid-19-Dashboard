@@ -4,7 +4,7 @@
             <app-case-card [removeTotal]="true" [data]="caseData"></app-case-card>
         </div>
         <div class="col h-100" *ngIf="vaccineData">
-            <app-vaccine-card [data]="vaccineData"></app-vaccine-card>
+            <app-vaccine-card [showTitle]="false" [data]="vaccineData"></app-vaccine-card>
         </div>
     </div>
     <app-user-state-list></app-user-state-list>

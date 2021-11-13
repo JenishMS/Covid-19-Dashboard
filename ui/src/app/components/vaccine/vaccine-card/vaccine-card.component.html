@@ -1,7 +1,8 @@
 <mat-card class="bg-secondary">
     <mat-card-header>
         <mat-card-title class="flex space-between">
-            <span>{{title}}</span>
+            <span *ngIf="showTitle">{{title}}</span>
+            <span *ngIf="!showTitle">Vaccine</span>
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
